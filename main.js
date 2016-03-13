@@ -85,11 +85,11 @@ function start() {
               allowPointSelect: false
         },
         series: [{
-            name: 'Male',
+            name: 'Män',
             data: man,
             color: "#e8574d"
         }, {
-            name: 'Female',
+            name: 'Kvinnor',
             data: woman,
             color: "#eacf13"
         }]
@@ -177,11 +177,11 @@ function start2() {
               allowPointSelect: false
         },
         series: [{
-            name: 'Male',
+            name: 'Män',
             data: man2,
             color: "#e8574d"
         }, {
-            name: 'Female',
+            name: 'Kvinnor',
             data: woman2,
             color: "#eacf13"
         }]
