@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        <script src="oldriket.js"></script>
+        <script src="riket.js"></script>
+        <script src="olddata.js"></script>
+        <script src="data.js"></script>
+        <script src="highcharts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <link href="jquery-ui.min.css" rel="stylesheet">
+    
+   <!--- <link rel="shortcut icon" href="http://designshack.net/favicon.ico"> --->
+  <link rel="icon" href="logo.png">
+  
+  
+
+    <title>Den könsuppdelade arbetsmarknaden</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" media="all" href="style.css">
+    
+    
+    <script>
+            $(function() {
+                var availableTags = [
+                    'Ale ',
+'Alingsås ',
+'Alvesta ',
+'Aneby ',
+'Arboga ',
+'Arjeplog ',
+'Arvidsjaur ',
+'Arvika ',
+'Askersund ',
+'Avesta ',
+'Bengtsfors ',
+'Berg ',
+'Bjurholm ',
+'Bjuv ',
+'Boden ',
+'Bollebygd ',
+'Bollnäs ',
+'Borgholm ',
+'Borlänge ',
+'Borås ',
+'Botkyrka ',
+'Boxholm ',
+'Bromölla ',
+'Bräcke ',
+'Burlöv ',
+'Båstad ',
+'Dals-Ed ',
+'Danderyd ',
+'Degerfors ',
+'Dorotea ',
+'Eda ',
+'Ekerö ',
+'Eksjö ',
+'Emmaboda ',
+'Enköping ',
+'Eskilstuna ',
+'Eslöv ',
+'Essunga ',
+'Fagersta ',
+'Falkenberg ',
+'Falköping ',
+'Falun ',
+'Filipstad ',
+'Finspång ',
+'Flen ',
+'Forshaga ',
+'Färgelanda ',
+'Gagnef ',
+'Gislaved ',
+'Gnesta ',
+'Gnosjö ',
+'Gotland ',
+'Grums ',
+'Grästorp ',
+'Gullspång ',
+'Gällivare ',
+'Gävle ',
+'Göteborg ',
+'Götene ',
+'Habo ',
+'Hagfors ',
+'Hallsberg ',
+'Hallstahammar ',
+'Halmstad ',
+'Hammarö ',
+'Haninge ',
+'Haparanda ',
+'Heby ',
+'Hedemora ',
+'Helsingborg ',
+'Herrljunga ',
+'Hjo ',
+'Hofors ',
+'Huddinge ',
+'Hudiksvall ',
+'Hultsfred ',
+'Hylte ',
+'Håbo ',
+'Hällefors ',
+'Härjedalen ',
+'Härnösand ',
+'Härryda ',
+'Hässleholm ',
+'Höganäs ',
+'Högsby ',
+'Hörby ',
+'Höör ',
+'Jokkmokk ',
+'Järfälla ',
+'Jönköping ',
+'Kalix ',
+'Kalmar ',
+'Karlsborg ',
+'Karlshamn ',
+'Karlskoga ',
+'Karlskrona ',
+'Karlstad ',
+'Katrineholm ',
+'Kil ',
+'Kinda ',
+'Kiruna ',
+'Klippan ',
+'Knivsta ',
+'Kramfors ',
+'Kristianstad ',
+'Kristinehamn ',
+'Krokom ',
+'Kumla ',
+'Kungsbacka ',
+'Kungsör ',
+'Kungälv ',
+'Kävlinge ',
+'Köping ',
+'Laholm ',
+'Landskrona ',
+'Laxå ',
+'Lekeberg ',
+'Leksand ',
+'Lerum ',
+'Lessebo ',
+'Lidingö ',
+'Lidköping ',
+'Lilla Edet ',
+'Lindesberg ',
+'Linköping ',
+'Ljungby ',
+'Ljusdal ',
+'Ljusnarsberg ',
+'Lomma ',
+'Ludvika ',
+'Luleå ',
+'Lund ',
+'Lycksele ',
+'Lysekil ',
+'Malmö ',
+'Malung-Sälen ',
+'Malå ',
+'Mariestad ',
+'Mark ',
+'Markaryd ',
+'Mellerud ',
+'Mjölby ',
+'Mora ',
+'Motala ',
+'Mullsjö ',
+'Munkedal ',
+'Munkfors ',
+'Mölndal ',
+'Mönsterås ',
+'Mörbylånga ',
+'Nacka ',
+'Nora ',
+'Norberg ',
+'Nordanstig ',
+'Nordmaling ',
+'Norrköping ',
+'Norrtälje ',
+'Norsjö ',
+'Nybro ',
+'Nykvarn ',
+'Nyköping ',
+'Nynäshamn ',
+'Nässjö ',
+'Ockelbo ',
+'Olofström ',
+'Orsa ',
+'Orust ',
+'Osby ',
+'Oskarshamn ',
+'Ovanåker ',
+'Oxelösund ',
+'Pajala ',
+'Partille ',
+'Perstorp ',
+'Piteå ',
+'Ragunda ',
+'Robertsfors ',
+'Ronneby ',
+'Rättvik ',
+'Sala ',
+'Salem ',
+'Sandviken ',
+'Sigtuna ',
+'Simrishamn ',
+'Sjöbo ',
+'Skara ',
+'Skellefteå ',
+'Skinnskatteberg ',
+'Skurup ',
+'Skövde ',
+'Smedjebacken ',
+'Sollefteå ',
+'Sollentuna ',
+'Solna ',
+'Sorsele ',
+'Sotenäs ',
+'Staffanstorp ',
+'Stenungsund ',
+'Stockholm ',
+'Storfors ',
+'Storuman ',
+'Strängnäs ',
+'Strömstad ',
+'Strömsund ',
+'Sundbyberg ',
+'Sundsvall ',
+'Sunne ',
+'Surahammar ',
+'Svalöv ',
+'Svedala ',
+'Svenljunga ',
+'Säffle ',
+'Säter ',
+'Sävsjö ',
+'Söderhamn ',
+'Söderköping ',
+'Södertälje ',
+'Sölvesborg ',
+'Tanum ',
+'Tibro ',
+'Tidaholm ',
+'Tierp ',
+'Timrå ',
+'Tingsryd ',
+'Tjörn ',
+'Tomelilla ',
+'Torsby ',
+'Torsås ',
+'Tranemo ',
+'Tranås ',
+'Trelleborg ',
+'Trollhättan ',
+'Trosa ',
+'Tyresö ',
+'Täby ',
+'Töreboda ',
+'Uddevalla ',
+'Ulricehamn ',
+'Umeå ',
+'Upplands Väsby ',
+'Upplands-Bro ',
+'Uppsala ',
+'Uppvidinge ',
+'Vadstena ',
+'Vaggeryd ',
+'Valdemarsvik ',
+'Vallentuna ',
+'Vansbro ',
+'Vara ',
+'Varberg ',
+'Vaxholm ',
+'Vellinge ',
+'Vetlanda ',
+'Vilhelmina ',
+'Vimmerby ',
+'Vindeln ',
+'Vingåker ',
+'Vårgårda ',
+'Vänersborg ',
+'Vännäs ',
+'Värmdö ',
+'Värnamo ',
+'Västervik ',
+'Västerås ',
+'Växjö ',
+'Ydre ',
+'Ystad ',
+'Åmål ',
+'Ånge ',
+'Åre ',
+'Årjäng ',
+'Åsele ',
+'Åstorp ',
+'Åtvidaberg ',
+'Älmhult ',
+'Älvdalen ',
+'Älvkarleby ',
+'Älvsbyn ',
+'Ängelholm ',
+'Öckerö ',
+'Ödeshög ',
+'Örebro ',
+'Örkelljunga ',
+'Örnsköldsvik ',
+'Östersund ',
+'Österåker ',
+'Östhammar ',
+'Östra Göinge ',
+'Överkalix ',
+'Övertorneå '
+                ];
+                $("#kommunen").autocomplete({
+        source: availableTags,
+        minLength: 1,
+        maxLength: 10,
+        select: function (event, ui) {
+            // feed hidden id field
+            $("#field_id").val(ui.item.id);
+            // update number of returned rows
+            $('#results_count').html('');
+        },
+        open: function (event, ui) {
+            // update number of returned rows
+            var len = $('.ui-autocomplete > li').length;
+            $('#results_count').html('(#' + len + ')');
+        },
+        close: function (event, ui) {
+            // update number of returned rows
+            $('#results_count').html('');
+        },
+        // mustMatch implementation
+        change: function (event, ui) {
+            if (ui.item === null) {
+                $(this).val('');
+                $('#field_id').val('');
+            }
+        }
+    });
+
+    // mustMatch (no value) implementation
+    $("#field").focusout(function () {
+        if ($("#field").val() === '') {
+            $('#field_id').val('');
+        }
+    });
+  });
+  </script>
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li>
+                        <a class="page-scroll" href="#page-top">Hem</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Data</a>
+                    </li><!---
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>--->
+                    <li>
+                        <a class="page-scroll" href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        
+            <div class="row">
+            
+                <div class="col-lg-12">
+                    
+                        <div id="w">
+                                    <div id="content">
+                                        <center> <img src="logo.png" height="42" width="42"></center>
+                                        <h2>Den könsuppdelade arbetsmarknaden</h2>
+                                        <h3>Svergie anses vara ett av världens mest jämnställda länder, men hur ser vår arbetsmarknad ut när det kommer till könsfördelning egentligen?</h3>
+                    
+                        
+                </div>
+            </div>
+                    <a class="page-scroll" href="#about"><button id="btn" type="button" class="btn btn-default">Vidare till data</button></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    <h1>Data</h1>
+                    <div id="searchfield" class="ui-widget">
+                                                <label for="tags"> </label>
+                                                    <input type="text" class="biginput" id="kommunen" placeholder="Ange din kommun">
+                    </div>
+                    <div class="row" style="margin-top: 5%">
+                    <div class="col-lg-6" id="container" style="min-width: 250px;min-height: 500px;float:left;  "></div>
+                    <div class="col-lg-6" id="rightCont" style="min-width: 250px;min-height: 500px;float:right;  "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Skapare</h1>
+                </div>
+                <div class= "col-xs-6 col-sm-3">
+                   <img src="kelly.jpg">
+                <p>Kelly Smith
+                    <a href="mailto:kelly.smith@hyperisland.se">kelly.smith@hyperisland.se</p></a>
+                </div>
+                <div class= "col-xs-6 col-sm-3">
+                 <img src="jonas.jpg">
+                <p>Jonas Lindström
+                    <a href="mailto:jonas.lindstrom@hyperisland.se">jonas.lindstrom@hyperisland.se</p></a>
+                </div>
+                <div class= "col-xs-6 col-sm-3">
+                
+                    <img src="helin.jpg">
+                    <p>Helin Sarac
+                    <a href="mailto:helin.sarac@hyperisland.se">helin.sarac@hyperisland.se</a></p>
+                    </div>
+                <div class= "col-xs-6 col-sm-3">
+                <img src="oscar.jpg">
+                <p>Oscar Jäderberg
+                    <a href="mailto:oscar.jaderberg@hyperisland.se">oskar.jaderberg@hyperisland.se</p></a>
+        
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+
+
+    
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+    
+   
+
+</body>
+
+</html>
