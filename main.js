@@ -52,6 +52,7 @@ function start() {
         xAxis: {
             categories: labels,
             labels: {
+                autoRotation: [-10, -20, -30, -40, -50, -60, -70, -80, -90],
                 style: {
                     color: '#fff',
                     fontSize: "15px"
