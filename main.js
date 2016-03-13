@@ -22,6 +22,10 @@ function start() {
            rtl: true,
            enabled: true,
            reversed: true ,
+           itemHoverStyle: {
+              color: 'rgba(255,255,255,1)',
+              cursor: "initial"
+        },
                       itemStyle: {
             fontWeight: "bold",
             fontSize: "15px",
@@ -110,6 +114,10 @@ function start2() {
            rtl: true,
            enabled: true,
            reversed: false,
+           itemHoverStyle: {
+              color: 'rgba(255,255,255,1)',
+              cursor: "initial"
+          },
                 itemStyle: {
             fontWeight: "bold",
             fontSize: "15px",
