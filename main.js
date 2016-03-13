@@ -18,7 +18,15 @@ function start() {
         },
        
        legend: {
-           enabled: false
+           title: "Kön",
+           rtl: true,
+           enabled: true,
+           reversed: true ,
+                      itemStyle: {
+            fontWeight: "bold",
+            fontSize: "15px",
+            color: "rgba(255,255,255,1)"
+            }
        },
         title: {
             text: kommun,
@@ -62,8 +70,14 @@ function start() {
         },
         plotOptions: {
             column: {
-                stacking: 'percent'
-            }
+                stacking: 'percent',
+                events: {
+                  legendItemClick: function () {
+                    return false;
+            },
+          },
+        },
+              allowPointSelect: false
         },
         series: [{
             name: 'Male',
@@ -91,10 +105,19 @@ function start2() {
             backgroundColor: 'rgba(255, 255, 255, 0)'
             
         },
-       
-       legend: {
-           enabled: false
-       },
+          legend: {
+           title: "Kön",
+           rtl: true,
+           enabled: true,
+           reversed: false,
+                itemStyle: {
+            fontWeight: "bold",
+            fontSize: "15px",
+            color: "rgba(255,255,255,1)"
+
+           }},
+
+
         title: {
             text: kommun2,
             style: {
@@ -135,8 +158,14 @@ function start2() {
         },
         plotOptions: {
             column: {
-                stacking: 'percent'
-            }
+                stacking: 'percent',
+                events: {
+                  legendItemClick: function () {
+                    return false;
+            },
+          },
+        },
+              allowPointSelect: false
         },
         series: [{
             name: 'Male',
@@ -164,6 +193,7 @@ $("#kommunen").keypress(function(e) {
     woman = [];
     kommun = [];
     var kommunInput = $(this).val();
+    }
       for(var key in data){
           if (key.toLocaleLowerCase().substring(0,kommunInput.length)==kommunInput.toLowerCase())
               {
@@ -179,8 +209,7 @@ $("#kommunen").keypress(function(e) {
                           }
                       }
                       start();
-                      }
-                  });
+                      });
 
 
 
