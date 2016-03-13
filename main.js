@@ -145,6 +145,7 @@ $(function(){
                             labels.push(jobname);
                             woman.push(riket[key][jobrow][jobname][1]);
                             man.push(riket[key][jobrow][jobname][0]);
+                            kommun = "riket";
                               }
                               }
                                   
@@ -158,6 +159,7 @@ $(function(){
                             labels2.push(jobname);
                             woman2.push(oldriket[key][jobrow][jobname][1]);
                             man2.push(oldriket[key][jobrow][jobname][0]);
+                            kommun2 = "riket";
                               }
                               }
                                   
