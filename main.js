@@ -83,94 +83,6 @@ function start() {
     
 };
 
-
-$("#kommunen").keypress(function(e) {
-  if( e.which == 13) {
-    labels = [];
-    man = [];
-    woman = [];
-    kommun = [];
-    var kommunInput = $(this).val();
-      for(var key in data){
-          if (key.toLocaleLowerCase().substring(0,kommunInput.length)==kommunInput.toLowerCase())
-              {
-                  kommun.push(kommunInput);
-                  for (jobbrow in data[key]){
-                      for(jobbname in data[key][jobbrow]){
-                            labels.push(jobbname);
-                            woman.push(data[key][jobbrow][jobbname][1]);
-                            man.push(data[key][jobbrow][jobbname][0]);
-                              }
-                              }
-                                  
-                          }
-                      }
-                      start();
-                      }
-                  });
-
-
-
-$("#kommunen").keypress(function(e) {
-  if( e.which == 13) {
-    labels2 = [];
-    man2 = [];
-    woman2 = [];
-    kommun2 = [];
-    var kommunInput = $(this).val();
-      for(var key in olddata){
-          if (key.toLocaleLowerCase().substring(0,kommunInput.length)==kommunInput.toLowerCase())
-              {
-                  kommun2.push(kommunInput);
-                  for (jobbrow in olddata[key]){
-                      for(jobbname in olddata[key][jobbrow]){
-                            labels2.push(jobbname);
-                            woman2.push(olddata[key][jobbrow][jobbname][1]);
-                            man2.push(olddata[key][jobbrow][jobbname][0]);
-                              }
-                              }
-                                  
-                          }
-                      }
-                      start2();
-                      }
-                  });
-
-
-
-$(function(){
-    for(var key in riket){
-        for (jobrow in riket[key]){
-                      for(jobname in riket[key][jobrow]){
-                            labels.push(jobname);
-                            woman.push(riket[key][jobrow][jobname][1]);
-                            man.push(riket[key][jobrow][jobname][0]);
-                            kommun = "riket";
-                              }
-                              }
-                                  
-                                             start();
-    }
-                      });
-$(function(){
-    for(var key in oldriket){
-        for (jobrow in oldriket[key]){
-                      for(jobname in oldriket[key][jobrow]){
-                            labels2.push(jobname);
-                            woman2.push(oldriket[key][jobrow][jobname][1]);
-                            man2.push(oldriket[key][jobrow][jobname][0]);
-                            kommun2 = "riket";
-                              }
-                              }
-                                  
-
-                                             start2();
-    }
-                      });
-
-
-
-
 function start2() {
    var chart = new Highcharts.Chart({
         chart: {
@@ -243,3 +155,86 @@ function start2() {
     
     
 };
+
+
+$("#kommunen").keypress(function(e) {
+  if( e.which == 13) {
+    labels = [];
+    man = [];
+    woman = [];
+    kommun = [];
+    var kommunInput = $(this).val();
+      for(var key in data){
+          if (key.toLocaleLowerCase().substring(0,kommunInput.length)==kommunInput.toLowerCase())
+              {
+                  kommun.push(kommunInput);
+                  for (jobbrow in data[key]){
+                      for(jobbname in data[key][jobbrow]){
+                            labels.push(jobbname);
+                            woman.push(data[key][jobbrow][jobbname][1]);
+                            man.push(data[key][jobbrow][jobbname][0]);
+                              }
+                              }
+                                  
+                          }
+                      }
+                      start();
+                      }
+                  });
+
+
+
+$("#kommunen").keypress(function(e) {
+  if( e.which == 13) {
+    labels2 = [];
+    man2 = [];
+    woman2 = [];
+    kommun2 = [];
+    var kommunInput = $(this).val();
+      for(var key in olddata){
+          if (key.toLocaleLowerCase().substring(0,kommunInput.length)==kommunInput.toLowerCase())
+              {
+                  kommun2.push(kommunInput);
+                  for (jobbrow in olddata[key]){
+                      for(jobbname in olddata[key][jobbrow]){
+                            labels2.push(jobbname);
+                            woman2.push(olddata[key][jobbrow][jobbname][1]);
+                            man2.push(olddata[key][jobbrow][jobbname][0]);
+                              }
+                              }
+                                  
+                          }
+                      }
+                      start2();
+                      }
+                  });
+
+
+
+$(function(){
+    for(var key in riket){
+        for (jobrow in riket[key]){
+                      for(jobname in riket[key][jobrow]){
+                            labels.push(jobname);
+                            woman.push(riket[key][jobrow][jobname][1]);
+                            man.push(riket[key][jobrow][jobname][0]);
+                            kommun = "riket";
+                                }
+                            }
+                                  
+                            start();
+    }
+                      });
+$(function(){
+    for(var key in oldriket){
+        for (jobrow in oldriket[key]){
+                      for(jobname in oldriket[key][jobrow]){
+                            labels2.push(jobname);
+                            woman2.push(oldriket[key][jobrow][jobname][1]);
+                            man2.push(oldriket[key][jobrow][jobname][0]);
+                            kommun2 = "riket";
+                                }
+                            }
+                            start2();
+    }
+  });
