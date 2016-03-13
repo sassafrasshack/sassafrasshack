@@ -75,10 +75,10 @@ function start() {
             color: "#eacf13"
         }]
     });
-    labels = [];
+    /*labels = [];
     man = [];
     woman = [];
-    kommun = [];
+    kommun = [];*/
     
     
 };
@@ -86,6 +86,10 @@ function start() {
 
 $("#kommunen").keypress(function(e) {
   if( e.which == 13) {
+    labels = [];
+    man = [];
+    woman = [];
+    kommun = [];
     var kommunInput = $(this).val();
       for(var key in data){
           if (key.toLocaleLowerCase().substring(0,kommunInput.length)==kommunInput.toLowerCase())
@@ -109,6 +113,10 @@ $("#kommunen").keypress(function(e) {
 
 $("#kommunen").keypress(function(e) {
   if( e.which == 13) {
+    labels2 = [];
+    man2 = [];
+    woman2 = [];
+    kommun2 = [];
     var kommunInput = $(this).val();
       for(var key in olddata){
           if (key.toLocaleLowerCase().substring(0,kommunInput.length)==kommunInput.toLowerCase())
