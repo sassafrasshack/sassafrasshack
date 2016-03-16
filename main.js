@@ -147,6 +147,7 @@ function start2() {
         xAxis: {
             categories: labels2,
             labels: {
+                autoRotation: [-10, -20, -30, -40, -50, -60, -70, -80, -90],
                 style: {
                     color: '#fff',
                     fontSize: "15px"
